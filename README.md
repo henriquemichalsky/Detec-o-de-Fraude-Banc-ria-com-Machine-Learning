@@ -4,60 +4,68 @@
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Status](https://img.shields.io/badge/Status-Concluído-green)
 
-## 📌 Sobre o Projeto
+## 📌 Problemática
+Identificar transações bancárias fraudulentas é um dos maiores desafios do setor financeiro.  
+O volume massivo de transações e o extremo desbalanceamento entre classes (fraude vs. legítima) tornam o problema complexo para modelos tradicionais. Este projeto aplica análise de dados e Machine Learning com técnicas de balanceamento para detectar fraudes em cartões de crédito com alta precisão.
 
-Modelo de Machine Learning para detectar transações bancárias fraudulentas
-em cartões de crédito, utilizando Random Forest com balanceamento SMOTE.
+## 📦 Coleta de Dados
+- **Fonte:** Kaggle — Credit Card Fraud Detection
+- **Arquivo:** `creditcard.csv`
+- **Registros:** 284.807 transações | **Variáveis:** 30 preditoras + 1 target
+- **Valores nulos:** Nenhum | **Duplicatas:** Nenhuma
+- **Desbalanceamento:** apenas **0,17%** das transações são fraudulentas
 
-## 📊 Dataset
-
-- **Fonte:** [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-- **Registros:** 284.807 transações
-- **Features:** 30 (V1-V28 via PCA + Amount + Time)
-- **Desbalanceamento:** apenas 0,17% de transações fraudulentas
+| Variável | Descrição |
+|---|---|
+| V1 – V28 | Componentes principais obtidos por PCA (dados anonimizados) |
+| Amount | Valor da transação |
+| Time | Tempo decorrido desde a primeira transação |
+| **Class** | 🎯 0 = legítima, 1 = fraude |
 
 ## 🛠️ Tecnologias Utilizadas
+- **Python**
+- **Pandas** e **NumPy**
+- **Scikit-learn**
+- **Imbalanced-learn (SMOTE)**
+- **Matplotlib** e **Seaborn**
 
-- Python
-- Pandas & NumPy
-- Scikit-learn
-- Imbalanced-learn (SMOTE)
-- Matplotlib & Seaborn
+## 🔍 Análise Exploratória
+- O dataset é extremamente desbalanceado, com predominância quase total de transações legítimas
+- As variáveis `V1` a `V28` já passaram por transformação PCA, preservando anonimização
+- `Amount` e `Time` foram escaladas para melhorar o desempenho do modelo
+- Algumas variáveis, como **V14**, **V10**, **V17** e **V4**, mostraram maior relevância para separar fraudes de transações legítimas
 
-## 🤖 Metodologia
+![Distribuição de Classes](images/class_distribution.jpg)
+![Correlação entre Variáveis](images/correlation_matrix.jpg)
+![Média das Features por Classe](images/media_features.jpg)
 
-1. Análise Exploratória dos Dados (EDA)
-2. Pré-processamento e balanceamento com SMOTE
-3. Treinamento com Random Forest (150 estimadores)
-4. Avaliação com AUC-ROC, Matriz de Confusão e F1-Score
-5. Análise de Feature Importance
+## 🤖 Modelagem
 
-## 📈 Resultados
+| Técnica | Resultado |
+|---|---|
+| Balanceamento com SMOTE | Reequilibrou a classe minoritária no treino |
+| Random Forest | Modelo principal utilizado |
+| Avaliação ROC | **AUC = 0.9293** |
+| Matriz de Confusão | 56.650 verdadeiros negativos e 68 verdadeiros positivos |
 
-| Métrica | Valor |
-|--------|-------|
+| Métrica | Resultado |
+|---|---|
 | AUC-ROC | **0.9293** |
-| Acurácia Geral | **99,97%** |
-| Precisão (Fraude) | **99%** |
-| Recall (Fraude) | **72%** |
-| F1-Score (Fraude) | **0.83** |
+| Acurácia | **99,97%** |
+| Precisão (fraude) | **99%** |
+| Recall (fraude) | **72%** |
+| F1-Score | **0.83** |
 
-## 🔑 Features Mais Importantes
+![Matriz de Confusão](images/confusion_matrix.jpg)
+![Curva ROC](images/roc_curve.jpg)
+![Feature Importance](images/feature_importance.jpg)
 
-| Rank | Feature | Importância |
-|------|---------|-------------|
-| 1 | V14 | ~19% |
-| 2 | V10 | ~12% |
-| 3 | V17 | ~10% |
-| 4 | V4 | ~10% |
+## ✅ Conclusões
+- O modelo **Random Forest com SMOTE** apresentou ótimo desempenho geral, com **AUC de 0.9293**
+- A detecção de fraudes foi altamente precisa, embora ainda existam falsos negativos
+- A variável **V14** foi a mais importante para a classificação, seguida por **V10**, **V17** e **V4**
+- O projeto mostra como técnicas de balanceamento e modelos de ensemble podem ser eficazes em cenários altamente desbalanceados
+- **Próximos passos:** testar XGBoost/LightGBM, ajustar threshold de decisão e otimizar hiperparâmetros
 
-## 📁 Estrutura do Projeto
-
-├── Projeto1.ipynb        
-└── images/               
-    ├── class_distribution.png
-    ├── correlation_matrix.png
-    ├── media_features.png
-    ├── confusion_matrix.png
-    ├── roc_curve.png
-    └── feature_importance.png
+---
+> Projeto desenvolvido por **Henrique Ximenes** — Portfólio de Ciência de Dados
