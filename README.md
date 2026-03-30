@@ -35,9 +35,9 @@ O volume massivo de transações e o extremo desbalanceamento entre classes (fra
 - `Amount` e `Time` foram escaladas para melhorar o desempenho do modelo
 - Algumas variáveis, como **V14**, **V10**, **V17** e **V4**, mostraram maior relevância para separar fraudes de transações legítimas
 
-![Distribuição de Classes](class_distribution-4.jpg)
-![Correlação entre Variáveis](correlation_matrix-6.jpg)
-![Média das Features por Classe](media_features-8.jpg)
+![Distribuição de Classes](images/class_distribution.jpg)
+![Correlação entre Variáveis](images/correlation_matrix.jpg)
+![Média das Features por Classe](images/media_features.jpg)
 
 ## 🤖 Modelagem
 
@@ -56,9 +56,9 @@ O volume massivo de transações e o extremo desbalanceamento entre classes (fra
 | Recall (Fraude) | **72%** |
 | F1-Score (Fraude) | **0.83** |
 
-![Matriz de Confusão](confusion_matrix-5.jpg)
-![Curva ROC](roc_curve-9.jpg)
-![Feature Importance](feature_importance-7.jpg)
+![Matriz de Confusão](images/confusion_matrix.jpg)
+![Curva ROC](images/roc_curve.jpg)
+![Feature Importance](images/feature_importance.jpg)
 
 ## ✅ Conclusões
 - O modelo **Random Forest com SMOTE** apresentou ótimo desempenho geral, com **AUC de 0.9293**
@@ -68,4 +68,4 @@ O volume massivo de transações e o extremo desbalanceamento entre classes (fra
 - **Próximos passos:** testar XGBoost/LightGBM, ajustar threshold de decisão e otimizar hiperparâmetros
 
 ---
-> Projeto desenvolvido por **Henrique Ximenes** — Portfólio de Ciência de Dados
+> Projeto desenvolvido por **Henrique Michalsky** — Portfólio de Ciência de Dados
