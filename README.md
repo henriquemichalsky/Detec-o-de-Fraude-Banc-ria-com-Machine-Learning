@@ -56,9 +56,8 @@ O volume massivo de transações e o extremo desbalanceamento entre classes (fra
 | Recall (Fraude) | **72%** |
 | F1-Score (Fraude) | **0.83** |
 
-![PCA](images/pca_variancia.png)
-![Clusters](images/kmeans_clusters.png)
-![Predito vs Real](images/predito_vs_real.png)
+![Matriz de Confusão] (images/confusion_matrix.png)
+![Curva ROC] (images/roc_curve.png) 
 ![Feature Importance](images/feature_importance.png)
 
 ## ✅ Conclusões
